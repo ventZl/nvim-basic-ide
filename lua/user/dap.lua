@@ -17,7 +17,6 @@ dap_install.setup {}
 
 dap_install.config("python", {})
 -- add other configs here
-
 dapui.setup {
   sidebar = {
     elements = {
@@ -36,6 +35,12 @@ dapui.setup {
 }
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticSignError", linehl = "", numhl = "" })
+
+dap.adapters.lldb = {
+    type = "executable",
+    command = "C:/Program Files/LLVM/bin/lldb-vscode.exe",
+    name = "lldb"
+}
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
